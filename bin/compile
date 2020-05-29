@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+parog_name=$(cat ${ENV_DIR}/PAROG_NAME)
+
+# Replace config.yml symlink by an actual file so that 
+# after the monorepo buildpack passes, the configuration 
+# file is available.
+
+back_config_file=${BUILD_DIR}/back/parogs/${parog_name}/config/config.yml
+rm ${back_config_file}
+cp -p ${BUILD_DIR}/config/${parog_name}/config.yml ${back_config_file}
+
+web_config_file=${BUILD_DIR}/web/parogs/${parog_name}/config.yml
+rm ${web_config_file}
+cp -f ${BUILD_DIR}/config/${parog_name}/config.yml ${web_config_file}
