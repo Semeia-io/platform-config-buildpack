@@ -12,8 +12,8 @@ parog_name=$(cat ${ENV_DIR}/PAROG_NAME)
 
 back_config_file=${BUILD_DIR}/back/parogs/${parog_name}/config/config.yml
 rm ${back_config_file}
-cp -pv ${BUILD_DIR}/config/${parog_name}/config.yml ${back_config_file}
+cp -pv ${BUILD_DIR}/config/parogs/${parog_name}/config.yml ${back_config_file}
 
 web_config_file=${BUILD_DIR}/web/parogs/${parog_name}/config.yml
 rm ${web_config_file}
-cp -pv ${BUILD_DIR}/config/${parog_name}/config.yml ${web_config_file}
+cp -pv ${BUILD_DIR}/config/parogs/${parog_name}/config.yml ${web_config_file}
